@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="cn.bluemobi.dylan.step.activity.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:background="#00000000">
+
+    <ImageView
+        android:id="@+id/iv4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:onClick="onClick"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/hsitory" />
+
+    <ImageView
+        android:id="@+id/iv3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:onClick="onClick"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/person" />
+
+    <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:onClick="onClick"
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/plan" />
+
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:onClick="onClick"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/add" />
+
+</FrameLayout>

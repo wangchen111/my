@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fffff0</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="yellow">#fd9c06</color>
+    <color name="red">#EE2C2C</color>
+    <color name="grey">#50808080</color>
+    <color name="black">#000000</color>
+    <color name="color_one">#FDE4BB</color>
+    <color name="color_two">#FCD2A1</color>
+    <color name="color_three">#EF8273</color>
+    <color name="green">#259B24</color>
+    <color name="green2">#27AE61</color>
+    <color name="black_1">#50333333</color>
+    <color name="white">#ffffff</color>
+    <color name="orange">#FFCC56</color>
+    <color name="blue">#7bbfea</color>
+    <color name="bailv">#a8d8b9</color>
+    <color name="shengdanblue">#2A8FBD</color>
+    <color name="tianlan">#00BFFF</color>
+    <color name="zise">#A286C0</color>
+    <color name="SHUANG">#303030</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="pianhuang">#EEE7CE</color>
+    <color name="qianju">#F7B881</color>
+    <color name="shenrou">#E9967A</color>
+    <color name="qianfei">#DE7062</color>
+</resources>
