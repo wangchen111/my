@@ -13,10 +13,12 @@ import java.util.List;
 
 import path.record.PathRecord;
 import path.recordutil.Util;
-
 /**
- * 数据库相关操作，用于存取轨迹记录
- * 
+ * 创建日期：2017/01/15
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：DbAdapter
+ * 类说明：数据库相关操作，用于存取轨迹记录
  */
 public class DbAdapter {
 	public static final String KEY_ROWID = "id";

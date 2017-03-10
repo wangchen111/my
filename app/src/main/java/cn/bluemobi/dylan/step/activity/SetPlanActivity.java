@@ -9,7 +9,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -22,12 +21,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
 import cn.bluemobi.dylan.step.R;
 import cn.bluemobi.dylan.step.step.utils.SharedPreferencesUtils;
 
 /**
  * 创建日期：2016 12 20
+ *
  * @author wangchen
  * @version 1.0
  * 文件名称：SetPlanActivity
@@ -60,7 +59,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
         cb_remind = (CheckBox) findViewById(R.id.cb_remind);
         tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
         btn_save = (Button) findViewById(R.id.btn_save);
-        mBubbleSeekBar5 = (BubbleSeekBar)findViewById(R.id.bubble_seek_bar_5);
+        mBubbleSeekBar5 = (BubbleSeekBar) findViewById(R.id.bubble_seek_bar_5);
     }
 
     @Override
@@ -107,7 +106,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
         mBubbleSeekBar5.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListenerAdapter() {
             @Override
             public void onProgressChanged(int progress) {
-                tv_step_number.setText(String.valueOf(progress ));
+                tv_step_number.setText(String.valueOf(progress));
             }
 
         });
@@ -151,7 +150,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             sp.setParam("achieveTime", achieveTime);
         }
-                finish();
+        finish();
     }
 
     private void showTimeDialog1() {

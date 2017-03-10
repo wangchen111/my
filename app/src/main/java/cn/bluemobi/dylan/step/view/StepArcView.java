@@ -15,8 +15,11 @@ import com.orhanobut.logger.Logger;
 import cn.bluemobi.dylan.step.R;
 
 /**
- * Created by DylanAndroid on 2016/5/26.
- * 显示步数的圆弧
+ * 创建日期：2016/12/29
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：StepArcView
+ * 类说明：绘制自定义view
  */
 public class StepArcView extends View {
 
@@ -41,7 +44,7 @@ public class StepArcView extends View {
      */
     private float angleLength = 270;
     /**
-     * 所要绘制的当前步数的红色圆弧终点到起点的夹角
+     * 所要绘制的当前步数的圆弧终点到起点的夹角
      */
     private float currentAngleLength = 0;
     /**
@@ -78,7 +81,7 @@ public class StepArcView extends View {
         drawArcRed(canvas, rectF);
         /**【第三步】绘制当前进度的数字*/
         drawTextNumber(canvas, centerX);
-        /**【第四步】绘制"步数"的红色数字*/
+        /**【第四步】绘制"步数"的数字*/
         drawTextStepString(canvas, centerX);
     }
 

@@ -6,10 +6,12 @@ import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
-
 /**
- * 检测手机是否支持计歩
- * Created by dylan on 2016/2/18.
+ * 创建日期：2016/12/26
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：StepCountModeDispatcher
+ * 类说明： 检测手机是否支持计步
  */
 public class StepCountModeDispatcher {
 

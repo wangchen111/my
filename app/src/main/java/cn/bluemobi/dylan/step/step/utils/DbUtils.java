@@ -10,7 +10,11 @@ import com.litesuits.orm.db.model.ConflictAlgorithm;
 import java.util.List;
 
 /**
- * Created by xf on 2016/1/31.
+ * 创建日期：2016/12/25
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：DbUtils
+ * 类说明：数据库工具类
  */
 public class DbUtils {
 

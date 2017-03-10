@@ -14,10 +14,12 @@ import java.util.List;
 import cn.bluemobi.dylan.step.R;
 import path.database.DbAdapter;
 import path.record.PathRecord;
-
 /**
+ * 创建日期：2017/01/25
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：RecordActivity
  * 所有轨迹list展示activity
- *
  */
 public class RecordActivity extends Activity implements OnItemClickListener {
 

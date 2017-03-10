@@ -33,7 +33,13 @@ import com.amap.api.maps.model.PolylineOptions;
 import cn.bluemobi.dylan.step.R;
 import path.database.DbAdapter;
 import path.record.PathRecord;
-
+/**
+ * 创建日期：2017/01/25
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：PathActivity
+ * 类说明：轨迹记录主activity
+ */
 public class PathActivity extends Activity implements LocationSource,
         AMapLocationListener {
     private MapView mMapView;

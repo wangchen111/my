@@ -32,12 +32,14 @@ import cn.bluemobi.dylan.step.R;
 import cn.bluemobi.dylan.step.fragment.HomeFragment;
 import cn.bluemobi.dylan.step.fragment.LocationFragment;
 import cn.bluemobi.dylan.step.step.utils.SharedPreferencesUtils;
+
 /**
  * 创建日期：2016 12 20
+ *
  * @author wangchen
  * @version 1.0
- * 文件名称：MainActivity
- * 类说明：
+ *          文件名称：MainActivity
+ *          类说明：
  */
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private SharedPreferencesUtils sp;
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("yourstep");
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         toolbar.setNavigationIcon(R.drawable.menu);
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .setInActiveColor("#FFFFF0")
                 .setBarBackgroundColor("#FFFFF0");
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.home_fill, getString(R.string.item_home)).setInactiveIconResource(R.drawable.home).setActiveColorResource(R.color.blue).setInActiveColorResource(R.color.black_1))
-                .addItem(new BottomNavigationItem(R.drawable.location_fill, getString(R.string.item_location)).setInactiveIconResource(R.drawable.location).setActiveColorResource(R.color.blue).setInActiveColorResource(R.color.black_1))
+                .addItem(new BottomNavigationItem(R.drawable.walk_fill, getString(R.string.item_location)).setInactiveIconResource(R.drawable.mywalk).setActiveColorResource(R.color.blue).setInActiveColorResource(R.color.black_1))
                 .setFirstSelectedPosition(0)
                 .initialise();
 
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             if (v.getId() == iv2.getId()) {
                 startActivity(new Intent(this, SetPlanActivity.class));
             } else if (v.getId() == iv3.getId()) {
-
+                startActivity(new Intent(this, PersonActivity.class));
             } else if (v.getId() == iv4.getId()) {
                 startActivity(new Intent(this, HistoryActivity.class));
             }
@@ -270,7 +270,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         if (id == R.id.nav_login) {
             startActivity(new Intent(this, LoginActivity.class));
         } else if (id == R.id.nac_person) {
-
+            startActivity(new Intent(this, SexActivity.class));
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_share) {

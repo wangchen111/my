@@ -35,7 +35,13 @@ import cn.bluemobi.dylan.step.activity.MainActivity;
 import cn.bluemobi.dylan.step.step.config.Constant;
 import cn.bluemobi.dylan.step.step.pojo.StepData;
 import cn.bluemobi.dylan.step.step.utils.DbUtils;
-
+/**
+ * 创建日期：2016/12/29
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：StepService
+ * 类说明：计步后台服务
+ */
 public class StepService extends Service implements SensorEventListener {
     //默认为30秒进行一次存储
     private static int duration = 30000;
@@ -230,8 +236,8 @@ public class StepService extends Service implements SensorEventListener {
                 new Intent(this, MainActivity.class), 0);
         builder.setContentIntent(contentIntent);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setTicker("Dylan计步");
-        builder.setContentTitle("Dylan计步");
+        builder.setTicker("YourStep计步");
+        builder.setContentTitle("YourStep计步");
         //设置不可清除
         builder.setOngoing(true);
         builder.setContentText(content);
@@ -255,7 +261,7 @@ public class StepService extends Service implements SensorEventListener {
                 new Intent(this, MainActivity.class), 0);
         builder.setContentIntent(contentIntent);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setTicker("Dylan计步提醒您开始锻炼了");
+        builder.setTicker("YourStep计步提醒您开始锻炼了");
         builder.setContentTitle("今日步数" + CURRENT_SETP + " 步");
         //设置不可清除
         builder.setOngoing(false);
@@ -302,7 +308,7 @@ public class StepService extends Service implements SensorEventListener {
                 .setContentText("距离目标还差" + (Integer.valueOf(plan) - CURRENT_SETP) + "步，加油！")
                 .setContentIntent(getDefalutIntent(Notification.FLAG_AUTO_CANCEL))
 //				.setNumber(number)//显示数量
-                .setTicker("Dylan计步提醒您开始锻炼了")//通知首次出现在通知栏，带上升动画效果的
+                .setTicker("YourStep计步提醒您开始锻炼了")//通知首次出现在通知栏，带上升动画效果的
                 .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
                 .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
                 .setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消

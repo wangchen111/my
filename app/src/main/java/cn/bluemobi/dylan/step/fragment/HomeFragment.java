@@ -30,7 +30,12 @@ import cn.bluemobi.dylan.step.step.utils.mathUtil;
 import cn.bluemobi.dylan.step.view.StepArcView;
 
 /**
- * Created by wangchen on 2017/1/19.
+ * 创建日期：2017/01/19
+ *
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：HomeFragment
+ * 类说明：主页fragment
  */
 
 public class HomeFragment extends Fragment implements Handler.Callback, View.OnClickListener {

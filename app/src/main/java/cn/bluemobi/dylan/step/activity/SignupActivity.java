@@ -19,11 +19,12 @@ import org.xutils.http.RequestParams;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bluemobi.dylan.step.R;
-import cn.bluemobi.dylan.step.step.utils.ConnectionsUtils;
 
 import static org.xutils.x.http;
+
 /**
  * 创建日期：2017 02 13
+ *
  * @author wangchen
  * @version 1.0
  * 文件名称：SignupActivity
@@ -55,8 +56,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
-        ConnectionsUtils.initAppID();
-        ConnectionsUtils.getInstance();
 
         final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
                 R.style.AppTheme_Dark_Dialog);

@@ -3,7 +3,13 @@ package cn.bluemobi.dylan.step.step.utils;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-
+/**
+ * 创建日期：2017/2/7
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：CountDownTimer
+ * 类说明：倒计时器
+ */
 public abstract class CountDownTimer {
 	  
     /**

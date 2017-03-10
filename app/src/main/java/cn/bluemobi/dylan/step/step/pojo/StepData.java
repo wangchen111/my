@@ -6,7 +6,11 @@ import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.enums.AssignType;
 
 /**
- * Created by dylan on 2016/1/30.
+ * 创建日期：2017/01/15
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：StepData
+ * 类说明：
  */
 
 @Table("step")

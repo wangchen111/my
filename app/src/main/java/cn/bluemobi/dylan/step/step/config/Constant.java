@@ -1,7 +1,11 @@
 package cn.bluemobi.dylan.step.step.config;
 
 /**
- * Created by dylan on 2016/1/30.
+ * 创建日期：2016/01/17
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：Constant
+ * 类说明：常量类
  */
 public class Constant {
     public static final int MSG_FROM_CLIENT = 0;

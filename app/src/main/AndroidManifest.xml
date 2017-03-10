@@ -54,7 +54,10 @@
         <activity android:name="path.recordpath3d.AnimationActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.SignupActivity"/>
+        <activity android:name=".activity.SexActivity"/>
         <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.PersonActivity"/>
+        <activity android:name=".activity.WeightActivity"/>
         <activity
             android:name="path.recordpath3d.RecordActivity"
             android:label="@string/app_name" >

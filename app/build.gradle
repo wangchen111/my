@@ -42,6 +42,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:latest.integration'
     compile 'com.jakewharton:butterknife-compiler:latest.integration'
     compile files('libs/hellocharts-library-1.5.8.jar')
+    compile 'com.kogitune:pre-lollipop-activity-transition:1.0.0'
     compile project(':bubbleseekbar')
+    compile project(':scalelibrary')
 
 }

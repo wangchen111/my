@@ -1,7 +1,6 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -22,12 +21,14 @@ import butterknife.ButterKnife;
 import cn.bluemobi.dylan.step.R;
 
 import static org.xutils.x.http;
+
 /**
  * 创建日期：2017 02 13
+ *
  * @author wangchen
  * @version 1.0
- * 文件名称：LoginActivity
- * 类说明：登录模块
+ *          文件名称：LoginActivity
+ *          类说明：登录模块
  */
 
 public class LoginActivity extends AppCompatActivity {
@@ -35,17 +36,21 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
     private static final String LoginUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/login";
 
-    @BindView(R.id.input_mobile) EditText _mobileText;
-    @BindView(R.id.input_password) EditText _passwordText;
-    @BindView(R.id.btn_login) Button _loginButton;
-    @BindView(R.id.link_signup) TextView _signupLink;
-    
+    @BindView(R.id.input_mobile)
+    EditText _mobileText;
+    @BindView(R.id.input_password)
+    EditText _passwordText;
+    @BindView(R.id.btn_login)
+    Button _loginButton;
+    @BindView(R.id.link_signup)
+    TextView _signupLink;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        
+
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -82,8 +87,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("请稍候...");
         progressDialog.show();
         RequestParams params = new RequestParams(LoginUrl);
-        params.addBodyParameter("uname",_mobileText.getText().toString());
-        params.addParameter("pwd",_passwordText.getText().toString());
+        params.addBodyParameter("uname", _mobileText.getText().toString());
+        params.addParameter("pwd", _passwordText.getText().toString());
         http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -91,37 +96,39 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject object = null;
                     object = new JSONObject(result);
                     String status = object.getString("status");
-                    Log.e("msg",object.getString("msg"));
-                    Log.e("status",object.getString("status"));
-                    if(status.equals("1")){
+                    Log.e("msg", object.getString("msg"));
+                    Log.e("status", object.getString("status"));
+                    if (status.equals("1")) {
                         progressDialog.cancel();
                         builder.setMessage("登录成功");
                         builder.show();
-                    }else if(status.equals("-1")){
+                    } else if (status.equals("-1")) {
                         progressDialog.cancel();
                         builder.setMessage("用户名不存在，请检查后再试");
                         builder.show();
-                    }else if(status.equals("-2")) {
+                    } else if (status.equals("-2")) {
                         progressDialog.cancel();
                         builder.setMessage("密码错误，请检查后再试");
                         builder.show();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
             }
+
             @Override
             public void onCancelled(CancelledException cex) {
             }
+
             @Override
             public void onFinished() {
             }
         });
     }
-
 
 
     @Override

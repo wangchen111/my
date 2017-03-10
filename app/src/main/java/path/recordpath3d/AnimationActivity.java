@@ -12,7 +12,11 @@ import android.widget.TextView;
 import cn.bluemobi.dylan.step.R;
 
 /**
- * Created by wangchen on 2017/2/17.
+ * 创建日期：2017/02/17
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：AnimationActivity
+ * 类说明：用于Activity切换时的动画
  */
 
 public class AnimationActivity extends Activity {

@@ -3,12 +3,13 @@ package cn.bluemobi.dylan.step.step.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
 /**
- * SharedPreferences的一个工具类，调用setParam就能保存String, Integer, Boolean, Float,
+ * 创建日期：2016/12/29
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：SharedPreferencesUtils
+ * 类说明： SharedPreferences的一个工具类，调用setParam就能保存String, Integer, Boolean, Float,
  * Long类型的参数 同样调用getParam就能获取到保存在手机里面的数据
- * 
- * @author xiaanming
  */
 public class SharedPreferencesUtils {
 	private Context context;

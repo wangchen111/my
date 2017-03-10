@@ -264,7 +264,7 @@ public class RecordShowActivity extends Activity implements
 		mOriginRoleMarker = mAMap.addMarker(new MarkerOptions().position(
 				startPoint).icon(
 				BitmapDescriptorFactory.fromBitmap(BitmapFactory
-						.decodeResource(getResources(), R.drawable.walk))));
+						.decodeResource(getResources(), R.drawable.mywalk))));
 	}
 
 	/**
@@ -318,7 +318,7 @@ public class RecordShowActivity extends Activity implements
 		mGraspRoleMarker = mAMap.addMarker(new MarkerOptions().position(
 				startPoint).icon(
 				BitmapDescriptorFactory.fromBitmap(BitmapFactory
-						.decodeResource(getResources(), R.drawable.walk))));
+						.decodeResource(getResources(), R.drawable.mywalk))));
 		if (!mGraspChecked) {
 			mGraspPolyline.setVisible(false);
 			mGraspStartMarker.setVisible(false);

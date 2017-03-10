@@ -4,12 +4,12 @@ import com.amap.api.location.AMapLocation;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- * 用于记录一条轨迹，包括起点、终点、轨迹中间点、距离、耗时、平均速度、时间
- * 
- * @author ligen
- * 
+ * 创建日期：2017/01/22
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：PathRecord
+ * 类说明： 用于记录一条轨迹，包括起点、终点、轨迹中间点、距离、耗时、平均速度、时间
  */
 public class PathRecord {
 	private AMapLocation mStartPoint;

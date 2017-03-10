@@ -1,8 +1,7 @@
 package cn.bluemobi.dylan.step.constant;
 
 /**
- * Created by Kevin on 2016/11/28.
- * Blog:http://blog.csdn.net/student9128
+ * Created by wangchen on 2016/12/28.
  * Description:
  */
 

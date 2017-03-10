@@ -21,8 +21,6 @@ import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.util.FloatUtils;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
 /**
@@ -30,7 +28,7 @@ import lecho.lib.hellocharts.view.ColumnChartView;
  * @revision xiarui 2016.12.23
  * @description 柱状图 Column Chart 的使用
  */
-public class HistoryActivity extends Activity implements View.OnClickListener{
+public class HistoryActivity extends Activity implements View.OnClickListener {
 
     /*========== 控件相关 ==========*/
     private ColumnChartView mColumnCharView;                //柱形图控件
@@ -58,7 +56,7 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
     /*========== 数据相关 ==========*/
     String[] date;
     String[] score;
-    private static  int numColumns;                    //列数
+    private static int numColumns;                    //列数
     private ColumnChartData mColumnChartData;               //柱状图数据
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
 
@@ -70,10 +68,10 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
         mColumnCharView = (ColumnChartView) findViewById(R.id.ccv_main);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
-        allstep = (LinearLayout)findViewById(R.id.allstep);
-        allmail = (LinearLayout)findViewById(R.id.allmail);
-        allmail_tv = (TextView)findViewById(R.id.allmail_tv);
-        allstep_tv = (TextView)findViewById(R.id.allstep_tv);
+        allstep = (LinearLayout) findViewById(R.id.allstep);
+        allmail = (LinearLayout) findViewById(R.id.allmail);
+        allmail_tv = (TextView) findViewById(R.id.allmail_tv);
+        allstep_tv = (TextView) findViewById(R.id.allstep_tv);
     }
 
     public void initData() {
@@ -100,12 +98,12 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
     private void DataHandle() {
         int allstep = 0;//总步数
         double allmail = 0;//总里程
-        for(int i=0;i<score.length;i++){
-            allstep = allstep+Integer.parseInt(score[i]);
+        for (int i = 0; i < score.length; i++) {
+            allstep = allstep + Integer.parseInt(score[i]);
         }
-        allstep_tv.setText(allstep+"步");
-        allmail = allstep*0.6;
-        allmail_tv.setText(allmail+"米");
+        allstep_tv.setText(allstep + "步");
+        allmail = allstep * 0.6;
+        allmail_tv.setText(allmail + "米");
     }
 
     @Override
@@ -131,9 +129,10 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
      * 根据不同的数据类型 绘制不同的柱状图
      */
     private void setColumnDatas(int numColumns) {
-                IS_NEGATIVE = false;                                            //设置反向标志位：不反向
-                setColumnDatasByParams(1, numColumns, false, IS_NEGATIVE);               //设置数据：单子列 总八列 不堆叠 不反向
-        }
+        IS_NEGATIVE = false;                                            //设置反向标志位：不反向
+        setColumnDatasByParams(1, numColumns, false, IS_NEGATIVE);               //设置数据：单子列 总八列 不堆叠 不反向
+    }
+
     /**
      * X 轴的显示
      */
@@ -142,6 +141,7 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
             mAxisXValues.add(new AxisValue(i).setLabel(date[i]));
         }
     }
+
     /**
      * 根据不同的参数 决定绘制什么样的柱状图
      *
@@ -273,7 +273,7 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
 
         @Override
         public void onValueSelected(int columnIndex, int subcolumnIndex, SubcolumnValue value) {
-            Toast.makeText(HistoryActivity.this, "您大约走了 " + (int) value.getValue()+"步", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HistoryActivity.this, "您大约走了 " + (int) value.getValue() + "步", Toast.LENGTH_SHORT).show();
         }
 
         @Override

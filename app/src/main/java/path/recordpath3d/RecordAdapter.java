@@ -11,7 +11,13 @@ import java.util.List;
 
 import cn.bluemobi.dylan.step.R;
 import path.record.PathRecord;
-
+/**
+ * 创建日期：
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：
+ * 类说明：
+ */
 public class RecordAdapter extends BaseAdapter {
 
 	private Context mContext;

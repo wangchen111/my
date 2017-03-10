@@ -13,7 +13,7 @@
     <string name="navigation_tab_host">TabHost</string>
 
     <string name="item_home">主页</string>
-    <string name="item_location">位置</string>
+    <string name="item_location">运动</string>
     <string name="item_like">Like</string>
     <string name="item_person">个人</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

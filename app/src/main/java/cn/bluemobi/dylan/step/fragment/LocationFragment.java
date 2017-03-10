@@ -1,27 +1,27 @@
 package cn.bluemobi.dylan.step.fragment;
 
 
-import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
 import cn.bluemobi.dylan.step.R;
 import cn.bluemobi.dylan.step.constant.Constants;
 import path.recordpath3d.AnimationActivity;
-import path.recordpath3d.PathActivity;
 
 /**
- * Created by wangchen on 2017/2/15.
+ * 创建日期：2017/02/15
+ *
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：LocationFragment
+ * 类说明：位置fragment
  */
 
 public class LocationFragment extends Fragment implements View.OnClickListener {
@@ -73,7 +73,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.loginbutton:
                 Intent intent = new Intent(getActivity(), AnimationActivity.class);
                 intent.setFlags(intent.FLAG_ACTIVITY_NO_HISTORY);

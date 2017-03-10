@@ -3,7 +3,11 @@ package cn.bluemobi.dylan.step.step.utils;
 import java.text.DecimalFormat;
 
 /**
- * Created by wangchen on 2017/2/16.
+ * 创建日期：2017/2/16
+ * @author wangchen
+ * @version 1.0
+ * 文件名称：MathUtil
+ * 类说明：计算工具类
  */
 
 public class mathUtil {
@@ -19,7 +23,7 @@ public class mathUtil {
     }
 
     public static String getCalories(int step){
-        calories = distance*3.4*60;
+        calories = distance*3.4 *60;
         DecimalFormat df = new DecimalFormat("######0.00");
         String str = df.format(calories);
         return str;
