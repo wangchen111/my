@@ -41,7 +41,7 @@ import cn.bluemobi.dylan.step.step.utils.SharedPreferencesUtils;
  *          文件名称：MainActivity
  *          类说明：
  */
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private SharedPreferencesUtils sp;
     private ArrayList<Fragment> fragments;
 
