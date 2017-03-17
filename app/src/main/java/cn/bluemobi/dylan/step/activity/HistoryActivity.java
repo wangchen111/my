@@ -82,7 +82,7 @@ public class HistoryActivity extends Activity implements View.OnClickListener {
         date = new String[stepDatas.size()];
         score = new String[stepDatas.size()];
         for (int i = 0; i < stepDatas.size(); i++) {
-            date[i] = stepDatas.get(i).getToday();
+            date[i] = stepDatas.get(i). getToday();
             score[i] = stepDatas.get(i).getStep();
         }
         numColumns = date.length;

@@ -7,14 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.kogitune.activity_transition.ActivityTransitionLauncher;
 
-import java.util.List;
-
 import cn.bluemobi.dylan.step.R;
-import cn.bluemobi.dylan.step.step.pojo.BodyData;
-import cn.bluemobi.dylan.step.step.utils.DbUtils;
+import cn.bluemobi.dylan.step.constant.Constants;
 
 /**
  * Created by wangchen on 2017/3/2.
@@ -29,6 +27,8 @@ public class SexActivity extends Activity implements View.OnClickListener {
     private LinearLayout layout_female;
     private ImageView male;
     private Button next;
+    private TextView tv_female;
+    private TextView tv_male;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,9 @@ public class SexActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.female:
-                sex = "female";
-                save();
+                Constants.sex = tv_female.getText().toString();
                 break;
             case R.id.male:
-                sex = "male";
-                save();
                 startActivity(new Intent(this, WeightActivity.class));
                 break;
             case R.id.iv_left:
@@ -69,25 +66,12 @@ public class SexActivity extends Activity implements View.OnClickListener {
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Constants.sex = tv_male.getText().toString();
                 final Intent intent = new Intent(SexActivity.this, WeightActivity.class);
                 ActivityTransitionLauncher.with(SexActivity.this).from(v).launch(intent);
             }
         });
-    }
+        tv_female = (TextView) findViewById(R.id.tv_female);
+        tv_male = (TextView) findViewById(R.id.tv_male);}
 
-    private void save() {
-        if (DbUtils.getLiteOrm() == null) {
-            DbUtils.createDb(this, "body");
-        }
-        List<BodyData> list = DbUtils.getQueryAll(BodyData.class);
-        if (list.size() == 0 || list.isEmpty()) {
-            BodyData data = new BodyData();
-            data.setSex(sex);
-            DbUtils.insert(data);
-        } else if (list.size() == 1) {
-            BodyData data = list.get(0);
-            data.setSex(sex);
-            DbUtils.update(data);
-        }
-    }
 }

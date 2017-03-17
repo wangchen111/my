@@ -54,15 +54,22 @@
                 android:textColor="@color/blue"
                 android:text="-------"
                 android:gravity="center"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
                 android:gravity="center_horizontal"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:text="第一次开始使用YourStep，从此开始健康生活"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_data"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:text=""/>
         </LinearLayout>
         <View  android:layout_height="1px"
             android:layout_width="match_parent"
@@ -91,14 +98,14 @@
                     android:text="YourStep已经陪你走过"
                     android:textColor="@color/blue"
                     android:gravity="center"
-                    android:textSize="12dp"/>
+                    android:textSize="12sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_input_date"
                     android:layout_below="@+id/tv_date"
                     android:textColor="@color/blue"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:text="--天"
                     android:gravity="center"/>
 
@@ -127,14 +134,14 @@
                     android:text="共达标天数"
                     android:textColor="@color/blue"
                     android:gravity="center"
-                    android:textSize="12dp"/>
+                    android:textSize="12sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_input_cup"
                     android:layout_below="@+id/tv_cup"
                     android:textColor="@color/blue"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:text="--天"
                     android:gravity="center"/>
             </RelativeLayout>
@@ -153,14 +160,14 @@
                 android:layout_height="wrap_content"
                 android:text="已经走了"
                 android:textColor="@color/blue"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:gravity="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_input_mail"
                 android:textColor="@color/blue"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:text="--公里"
                 android:gravity="center"/>
             <TextView
@@ -168,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:text="路漫漫其修远兮，吾将坚持锻炼"
                 android:textColor="@color/blue"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:gravity="center"/>
         </LinearLayout>
         <View  android:layout_height="1px"
@@ -198,14 +205,14 @@
                     android:text="累计走过了"
                     android:textColor="@color/blue"
                     android:gravity="center"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_input_zuji"
                     android:textColor="@color/blue"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:layout_below="@+id/tv_zuji"
                     android:text="----步"
                     android:gravity="center" />
@@ -228,7 +235,7 @@
                     android:text="单日最多步数记录"
                     android:textColor="@color/blue"
                     android:gravity="center"
-                    android:textSize="12dp"/>
+                    android:textSize="12sp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -236,7 +243,7 @@
                     android:layout_below="@+id/medal"
                     android:gravity="center"
                     android:textColor="@color/blue"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:text="----步"/>
             </RelativeLayout>
         </LinearLayout>
@@ -252,7 +259,7 @@
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/calorie"
                 android:textColor="@color/blue"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:text="--千卡"
                 android:gravity="center"/>
         </LinearLayout>

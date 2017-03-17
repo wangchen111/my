@@ -24,8 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean isrequestCheck = true;//判断是否需要系统权限检测。防止和系统提示框重叠
 
     static final String[] PERMISSION = new String[]{
-            Manifest.permission.WRITE_SETTINGS,// 写入权限
-            Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,//外部存储写权限
+//            Manifest.permission.WRITE_SETTINGS,// 写入权限
+//            Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,//外部存储写权限
             Manifest.permission.WRITE_EXTERNAL_STORAGE,//内置存储卡写权限
             Manifest.permission.RECEIVE_BOOT_COMPLETED,  //接受开机广播
             Manifest.permission.READ_PHONE_STATE,        //读取设备信息
@@ -33,8 +33,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.ACCESS_FINE_LOCATION,//精准位置（基于GPS）
             Manifest.permission.INTERNET,//请求网络
             Manifest.permission.ACCESS_NETWORK_STATE,//允许访问GMS网络信息
-//            Manifest.permission.ACCESS_WIFI_STATE,//无线网络权限
-            Manifest.permission.CHANGE_CONFIGURATION,//允许程序改变设置
+            Manifest.permission.ACCESS_WIFI_STATE,//无线网络权限
+//            Manifest.permission.CHANGE_CONFIGURATION,//允许程序改变设置
             Manifest.permission.WAKE_LOCK,//防止手机休眠
     };
 

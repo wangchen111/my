@@ -7,4 +7,8 @@ package cn.bluemobi.dylan.step.constant;
 
 public class Constants {
     public static final String ARGS = "args";
+    public static String sex = "";
+    public static String weight = "";
+    public static String height = "";
+    public static String birthday = "";
 }

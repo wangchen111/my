@@ -13,8 +13,8 @@ public class BodyData {
     // 指定自增，每个对象需要有一个主键
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int id;
-    @Column("stature")
-    private String stature;
+    @Column("weight")
+    private String weight;
     @Column("height")
     private String height;
     @Column("birthday")
@@ -28,11 +28,11 @@ public class BodyData {
     public void setId(int id) {
         this.id = id;
     }
-    public String getStature() {
-        return stature;
+    public String getWeight() {
+        return weight;
     }
-    public void setStature(String stature) {
-        this.stature = stature;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
     public String getHeight() {
         return height;
@@ -58,7 +58,7 @@ public class BodyData {
                 "id=" + id +
                 ", birthday='" + birthday + '\'' +
                 ", height='" + height + '\'' +
-                ",stature='" + stature + '\'' +
+                ",stature='" + weight + '\'' +
                 '}';
     }
 }
