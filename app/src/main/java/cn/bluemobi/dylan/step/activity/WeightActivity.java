@@ -1,8 +1,10 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
     private ImageView iv_left;
     private LinearLayout layout_titlebar;
     private ImageView male;
+    private ImageView female;
     private LinearLayout layout_female;
     private HorizontalScaleScrollView hsScale;
     private Button last;
@@ -38,6 +41,7 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight);
         ActivityTransition.with(getIntent()).to(findViewById(R.id.male)).start(savedInstanceState);
+        ActivityTransition.with(getIntent()).to(findViewById(R.id.female)).start(savedInstanceState);
         initView();
     }
 
@@ -45,6 +49,11 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_left.setOnClickListener(this);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
+        if (getIntent().getIntExtra("sex", -1) == 1) {
+            findViewById(R.id.male).setVisibility(View.VISIBLE);
+        } else if (getIntent().getIntExtra("sex", -1) == 0) {
+            findViewById(R.id.female).setVisibility(View.VISIBLE);
+        }
         male = (ImageView) findViewById(R.id.male);
         layout_female = (LinearLayout) findViewById(R.id.layout_female);
         hsScale = (HorizontalScaleScrollView) findViewById(R.id.hsScale);
@@ -77,9 +86,11 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
             case R.id.next:
                 Constants.weight = tv_scale.getText().toString();
                 startActivity(new Intent(this, HeightActivity.class));
+                finish();
                 break;
             case R.id.iv_left:
-                startActivity(new Intent(this, MainActivity.class));
+                finish();
+                break;
         }
     }
 
@@ -90,7 +101,28 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
 
     @Override
     public void onScaleScroll(int scale) {
-        tv_scale.setText(scale + "KG");
+        tv_scale.setText(scale + "kg");
     }
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setTitle("确认退出设置个人资料吗？")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 点击“确认”后的操作
+                        WeightActivity.this.finish();
+
+                    }
+                })
+                .setNegativeButton("返回", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 点击“返回”后的操作,这里不设置没有任何操作
+                    }
+                }).show();
+    }
 }

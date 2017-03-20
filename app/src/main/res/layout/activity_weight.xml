@@ -53,7 +53,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/male"
-                android:id="@+id/male" />
+                android:id="@+id/male"
+                android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/female"
+                android:visibility="gone"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +82,7 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/tv_scale"
                 android:textColor="@color/blue"
-                android:text="60KG"
+                android:text="60kg"
                 android:textSize="18sp"/>
             <com.totcy.salelibrary.HorizontalScaleScrollView
                 android:id="@+id/hsScale"

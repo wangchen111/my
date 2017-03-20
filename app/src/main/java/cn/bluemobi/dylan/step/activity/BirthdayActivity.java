@@ -1,9 +1,11 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,7 +47,12 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_left.setOnClickListener(this);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
-        male = (ImageView) findViewById(R.id.male);
+//        male = (ImageView) findViewById(R.id.male);
+        if (Constants.sex.equals("男")) {
+            findViewById(R.id.male).setVisibility(View.VISIBLE);
+        } else if (Constants.sex.equals("女")) {
+            findViewById(R.id.female).setVisibility(View.VISIBLE);
+        }
         layout_female = (LinearLayout) findViewById(R.id.layout_female);
         tv_scale = (TextView) findViewById(R.id.tv_scale);
         hsScale = (HorizontalScaleScrollView) findViewById(R.id.hsScale);
@@ -62,14 +69,21 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.last:
-                startActivity(new Intent(this, HeightActivity.class));
+                Intent intent = new Intent(this, HeightActivity.class);
+                if (Constants.sex.equals("男")) {
+                    intent.putExtra("sex", 1);
+                } else if (Constants.sex.equals("女")) {
+                    intent.putExtra("sex", 0);
+                }
+                startActivity(intent);
                 break;
             case R.id.next:
                 save();
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.iv_left:
-                startActivity(new Intent(this, MainActivity.class));
+                finish();
+                break;
         }
     }
 
@@ -82,6 +96,7 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
     public void onScaleScroll(int scale) {
         tv_scale.setText(scale + "年");
     }
+
     private void save() {
         if (DbUtils.getLiteOrm() == null) {
             DbUtils.createDb(this, "body");
@@ -102,5 +117,27 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
             data.setBirthday(tv_scale.getText().toString());
             DbUtils.update(data);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setTitle("确认退出设置个人资料吗？")
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 点击“确认”后的操作
+                        BirthdayActivity.this.finish();
+
+                    }
+                })
+                .setNegativeButton("返回", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 点击“返回”后的操作,这里不设置没有任何操作
+                    }
+                }).show();
     }
 }

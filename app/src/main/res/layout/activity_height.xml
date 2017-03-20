@@ -70,7 +70,16 @@
                 android:src="@drawable/male"
                 android:id="@+id/male"
                 android:layout_marginTop="20dp"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/female"
+                android:id="@+id/female"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
