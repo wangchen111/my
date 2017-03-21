@@ -83,7 +83,6 @@ public class SexActivity extends Activity implements View.OnClickListener {
         new AlertDialog.Builder(this).setTitle("确认退出设置个人资料吗？")
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // 点击“确认”后的操作

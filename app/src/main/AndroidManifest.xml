@@ -64,6 +64,8 @@
             android:launchMode="singleTask"/>
         <activity android:name=".activity.BirthdayActivity"
             android:launchMode="singleTask"/>
+        <activity android:name=".activity.SuggestActivity"/>
+        <activity android:name=".activity.ShareActivity"/>
         <activity
             android:name="path.recordpath3d.RecordActivity"
             android:label="@string/app_name" >

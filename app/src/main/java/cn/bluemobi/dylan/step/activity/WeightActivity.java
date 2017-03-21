@@ -113,6 +113,7 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // 点击“确认”后的操作
+                        startActivity(new Intent(WeightActivity.this,MainActivity.class));
                         WeightActivity.this.finish();
 
                     }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/layout_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="onBackward"
+            android:padding="38px"
+            android:src="@mipmap/arrow_back_white"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"
+            android:text="分享"
+            android:textColor="#7bbfea"
+            android:textSize="60px" />
+    </LinearLayout>
+    <View  android:layout_height="1px"
+        android:layout_width="match_parent"
+        android:background="@color/grey" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/tv_git"
+            android:background="@color/grey"
+            android:text="https://github.com/wangchen111/my"
+            android:textColor="@color/blue"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/git"
+            android:layout_below="@+id/tv_git"
+            android:src="@drawable/github"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/gitbutton"
+            android:background="@color/blue"
+            android:layout_marginTop="150dp"
+            android:layout_centerHorizontal="true"
+            android:text="复制"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="250dp"
+            android:id="@+id/tv_baidu"
+            android:background="@color/grey"
+            android:text="链接：http://pan.baidu.com/s/1mhNEBK8 密码：t2qv"
+            android:textColor="@color/blue"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/baidu"
+            android:layout_below="@+id/tv_baidu"
+            android:src="@drawable/baidu"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/baiduButton"
+            android:background="@color/blue"
+            android:layout_marginTop="360dp"
+            android:layout_centerHorizontal="true"
+            android:text="复制"
+            android:textColor="@color/colorPrimary"/>
+    </RelativeLayout>
+</LinearLayout>

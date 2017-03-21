@@ -128,6 +128,7 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // 点击“确认”后的操作
+                        startActivity(new Intent(BirthdayActivity.this,MainActivity.class));
                         BirthdayActivity.this.finish();
 
                     }

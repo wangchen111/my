@@ -107,7 +107,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            moveTaskToBack(false);
         }
     }
 
@@ -207,7 +207,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
             /**第三步，根据间隔角度计算出每个菜单相对于水平线起始位置的真实角度**/
             int angle = avgAngle * i;
             /**
-             * ﻿﻿
+             *
              * 圆点坐标：(x0,y0)
              * 半径：r
              * 角度：a0
@@ -274,9 +274,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(this, ShareActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this, SuggestActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(this, AboutActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         }

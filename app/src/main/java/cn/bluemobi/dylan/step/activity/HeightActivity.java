@@ -104,8 +104,8 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // 点击“确认”后的操作
+                        startActivity(new Intent(HeightActivity.this, MainActivity.class));
                         HeightActivity.this.finish();
-
                     }
                 })
                 .setNegativeButton("返回", new DialogInterface.OnClickListener() {
