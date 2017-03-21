@@ -90,6 +90,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
             weight = 0;
             birthday = "--";
         } else if (bodyDatas.size() == 1) {
+
             sex = bodyDatas.get(0).getSex();
             height = bodyDatas.get(0).getHeight();
             weight = bodyDatas.get(0).getWeight();
