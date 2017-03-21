@@ -51,6 +51,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/begin"
                 android:textColor="@color/blue"
                 android:text="-------"
                 android:gravity="center"
@@ -69,6 +70,7 @@
                 android:id="@+id/tv_data"
                 android:textColor="@color/blue"
                 android:textSize="12sp"
+                android:gravity="center"
                 android:text=""/>
         </LinearLayout>
         <View  android:layout_height="1px"
@@ -250,18 +252,29 @@
         <View  android:layout_height="1px"
             android:layout_width="match_parent"
             android:background="@color/grey" />
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/calorie"
+                android:gravity="center"
+                android:text="累计消耗的热量"
+                android:textColor="@color/blue"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_cal"
+                android:layout_below="@+id/textView"
                 android:textColor="@color/blue"
                 android:textSize="25sp"
                 android:text="--千卡"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

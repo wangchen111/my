@@ -83,61 +83,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2">
-
-        <LinearLayout
-            android:id="@+id/allstep"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#00000000"
-                android:gravity="center_horizontal"
-                android:text="总步数"
-                android:textColor="#7bbfea"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/allstep_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#00000000"
-                android:gravity="center_horizontal"
-                android:textColor="#7bbfea"
-                android:textSize="20dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/allmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#00000000"
-                android:gravity="center_horizontal"
-                android:text="总里程"
-                android:textColor="#7bbfea"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/allmail_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#00000000"
-                android:gravity="center_horizontal"
-                android:textColor="#7bbfea"
-                android:textSize="20dp" />
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

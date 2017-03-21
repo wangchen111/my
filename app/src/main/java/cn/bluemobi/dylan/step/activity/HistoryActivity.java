@@ -34,10 +34,6 @@ public class HistoryActivity extends Activity implements View.OnClickListener {
     private ColumnChartView mColumnCharView;                //柱形图控件
     private ImageView iv_left;
     private LinearLayout layout_titlebar;
-    private LinearLayout allmail;
-    private TextView allmail_tv;
-    private LinearLayout allstep;
-    private TextView allstep_tv;
 
     /*========== 状态相关 ==========*/
     private boolean isHasAxes = true;                       //是否显示坐标轴
@@ -68,10 +64,6 @@ public class HistoryActivity extends Activity implements View.OnClickListener {
         mColumnCharView = (ColumnChartView) findViewById(R.id.ccv_main);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
-        allstep = (LinearLayout) findViewById(R.id.allstep);
-        allmail = (LinearLayout) findViewById(R.id.allmail);
-        allmail_tv = (TextView) findViewById(R.id.allmail_tv);
-        allstep_tv = (TextView) findViewById(R.id.allstep_tv);
     }
 
     public void initData() {
@@ -101,9 +93,6 @@ public class HistoryActivity extends Activity implements View.OnClickListener {
         for (int i = 0; i < score.length; i++) {
             allstep = allstep + Integer.parseInt(score[i]);
         }
-        allstep_tv.setText(allstep + "步");
-        allmail = allstep * 0.6;
-        allmail_tv.setText(allmail + "米");
     }
 
     @Override

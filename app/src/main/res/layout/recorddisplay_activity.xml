@@ -8,7 +8,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@drawable/title_background" >
+        android:background="@color/colorPrimary" >
 
         <LinearLayout
             android:id="@+id/title_lly_back"
@@ -68,6 +68,7 @@
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#75fffff0"
         android:layout_below="@+id/title" >
     </com.amap.api.maps.MapView>
 

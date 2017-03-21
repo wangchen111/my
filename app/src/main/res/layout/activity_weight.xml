@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_weight"
-                android:text="体重"
+                android:text="体重(kg)"
                 android:textColor="@color/blue"
                 android:textSize="20sp"/>
             </LinearLayout>
@@ -82,7 +82,7 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/tv_scale"
                 android:textColor="@color/blue"
-                android:text="60kg"
+                android:text="60"
                 android:textSize="18sp"/>
             <com.totcy.salelibrary.HorizontalScaleScrollView
                 android:id="@+id/hsScale"
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/last"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/nextbutton"
+                    android:background="@mipmap/btn_submit_bg"
                     android:textColor="@color/colorPrimary"
                     android:text="上一步"/>
                 <TextView
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/next"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/nextbutton"
+                    android:background="@mipmap/btn_submit_bg"
                     android:text="下一步"
                     android:textColor="@color/colorPrimary"/>
             </LinearLayout>

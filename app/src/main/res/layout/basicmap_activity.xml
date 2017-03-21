@@ -32,15 +32,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
-        <ToggleButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/login_selector"
-            android:id="@+id/loginbutton"
-            android:textOn="停止"
-            android:textOff="开始"
-            android:textSize="20dp"
-            android:textColor="@color/white" />
+
+            <ToggleButton
+                android:id="@+id/loginbutton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/login_selector"
+                android:textColor="@color/white"
+                android:textOff="开始"
+                android:textOn="停止"
+                android:textSize="20dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

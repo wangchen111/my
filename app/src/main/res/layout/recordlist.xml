@@ -3,73 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <RelativeLayout
-        android:id="@+id/title"
+    <LinearLayout
+        android:id="@+id/layout_titlebar"
         android:layout_width="match_parent"
-        android:layout_height="48dp" 
-        android:background="@drawable/title_background">
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/title_lly_back"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:descendantFocusability="beforeDescendants"
-            android:gravity="center_vertical"
-            android:onClick="onBackClick"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingStart="5dp" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:clickable="false"
-                android:scaleType="center"
-                android:src="@drawable/back_btn_image" />
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/iv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:onClick="onBackClick"
+            android:padding="38px"
+            android:src="@mipmap/arrow_back_white"
+            android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/title_center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/title_lly_right"
-            android:layout_width="90dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:descendantFocusability="beforeDescendants"
-            android:gravity="center_vertical|right"
-            android:orientation="horizontal"
-            android:paddingRight="5dp" >
-
-            <TextView
-                android:id="@+id/title_tv_option"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:enabled="true"
-                android:textSize="18dp" />
-        </LinearLayout>
-    </RelativeLayout>
-
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"
+            android:text="历史轨迹"
+            android:textColor="#7bbfea"
+            android:textSize="60px" />
+    </LinearLayout>
     <ListView
         android:id="@+id/recordlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/blue"
         android:layout_margin="5dp"/>
 
 </LinearLayout>

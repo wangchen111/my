@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/last"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/nextbutton"
+                    android:background="@mipmap/btn_submit_bg"
                     android:textColor="@color/colorPrimary"
                     android:text="上一步"/>
                 <TextView
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/next"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/nextbutton"
+                    android:background="@mipmap/btn_submit_bg"
                     android:text="完成"
                     android:textColor="@color/colorPrimary"/>
             </LinearLayout>

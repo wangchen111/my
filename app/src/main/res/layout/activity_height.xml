@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_height"
-                android:text="165cm"
+                android:text="165"
                 android:layout_marginTop="100dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/blue"
@@ -80,6 +80,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_shengao"
+                android:layout_marginTop="20dp"
+                android:text="身高(cm)"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +119,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/last"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/nextbutton"
+            android:background="@mipmap/btn_submit_bg"
             android:textColor="@color/colorPrimary"
             android:text="上一步"/>
         <TextView
@@ -122,7 +131,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/next"
             android:layout_marginRight="10dp"
-            android:background="@drawable/nextbutton"
+            android:background="@mipmap/btn_submit_bg"
             android:text="下一步"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>

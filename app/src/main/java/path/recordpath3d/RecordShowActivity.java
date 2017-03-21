@@ -264,7 +264,7 @@ public class RecordShowActivity extends Activity implements
 		mOriginRoleMarker = mAMap.addMarker(new MarkerOptions().position(
 				startPoint).icon(
 				BitmapDescriptorFactory.fromBitmap(BitmapFactory
-						.decodeResource(getResources(), R.drawable.mywalk))));
+						.decodeResource(getResources(), R.drawable.walk))));
 	}
 
 	/**

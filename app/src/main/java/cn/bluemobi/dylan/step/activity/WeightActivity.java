@@ -84,7 +84,7 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
                 startActivity(new Intent(this, SexActivity.class));
                 break;
             case R.id.next:
-                Constants.weight = tv_scale.getText().toString();
+                Constants.weight = Integer.valueOf(tv_scale.getText().toString());
                 startActivity(new Intent(this, HeightActivity.class));
                 finish();
                 break;
@@ -101,7 +101,7 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
 
     @Override
     public void onScaleScroll(int scale) {
-        tv_scale.setText(scale + "kg");
+        tv_scale.setText(scale+"");
     }
 
     @Override

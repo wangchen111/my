@@ -14,9 +14,9 @@ public class BodyData {
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int id;
     @Column("weight")
-    private String weight;
+    private int weight;
     @Column("height")
-    private String height;
+    private int height;
     @Column("birthday")
     private String birthday;
     @Column("sex")
@@ -28,16 +28,16 @@ public class BodyData {
     public void setId(int id) {
         this.id = id;
     }
-    public String getWeight() {
+    public int getWeight() {
         return weight;
     }
-    public void setWeight(String weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
-    public String getHeight() {
+    public int getHeight() {
         return height;
     }
-    public void setHeight(String height) {
+    public void setHeight(int height) {
         this.height = height;
     }
     public String getBirthday() {

@@ -47,7 +47,7 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
             case R.id.last:
                 startActivity(new Intent(this, WeightActivity.class));
             case R.id.next:
-                Constants.height = tv_height.getText().toString();
+                Constants.height = Integer.valueOf(tv_height.getText().toString());
                 startActivity(new Intent(this, BirthdayActivity.class));
             case R.id.iv_left:
                 finish();
@@ -60,7 +60,7 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
         veScale.setOnScrollListener(new VerticalSrollScaleView.OnScrollListener() {
             @Override
             public void onScaleScroll(int scale) {
-                tv_height.setText(scale + "cm");
+                tv_height.setText(scale+"");
             }
         });
     }
