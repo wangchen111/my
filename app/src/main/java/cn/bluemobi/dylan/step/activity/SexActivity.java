@@ -23,7 +23,6 @@ import cn.bluemobi.dylan.step.constant.Constants;
 public class SexActivity extends Activity implements View.OnClickListener {
 
     private static String sex;
-    private ImageView iv_left;
     private LinearLayout layout_titlebar;
     private ImageView female;
     private LinearLayout layout_female;
@@ -41,17 +40,10 @@ public class SexActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_left:
-                finish();
-                break;
-        }
 
     }
 
     private void initView() {
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_left.setOnClickListener(this);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         female = (ImageView) findViewById(R.id.female);
         female.setOnClickListener(new View.OnClickListener() {

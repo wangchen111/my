@@ -25,7 +25,6 @@ import cn.bluemobi.dylan.step.constant.Constants;
 public class WeightActivity extends Activity implements View.OnClickListener, HorizontalScaleScrollView.OnScrollListener {
     private ExitActivityTransition exitTransition;
 
-    private ImageView iv_left;
     private LinearLayout layout_titlebar;
     private ImageView male;
     private ImageView female;
@@ -46,8 +45,6 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
     }
 
     private void initView() {
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_left.setOnClickListener(this);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         if (getIntent().getIntExtra("sex", -1) == 1) {
             findViewById(R.id.male).setVisibility(View.VISIBLE);
@@ -86,9 +83,6 @@ public class WeightActivity extends Activity implements View.OnClickListener, Ho
             case R.id.next:
                 Constants.weight = Integer.valueOf(tv_scale.getText().toString());
                 startActivity(new Intent(this, HeightActivity.class));
-                finish();
-                break;
-            case R.id.iv_left:
                 finish();
                 break;
         }

@@ -24,7 +24,6 @@ import cn.bluemobi.dylan.step.constant.Constants;
 
 public class HeightActivity extends Activity implements View.OnClickListener, VerticalSrollScaleView.OnScrollListener {
 
-    private ImageView iv_left;
     private LinearLayout layout_titlebar;
     private ImageView male;
     private VerticalSrollScaleView veScale;
@@ -51,9 +50,6 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
                 Constants.height = Integer.valueOf(tv_height.getText().toString());
                 startActivity(new Intent(this, BirthdayActivity.class));
                 break;
-            case R.id.iv_left:
-                finish();
-                break;
         }
     }
 
@@ -68,8 +64,6 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
     }
 
     private void initView() {
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_left.setOnClickListener(this);
         if (Constants.sex.equals("男")) {
             findViewById(R.id.male).setVisibility(View.VISIBLE);
         } else if (Constants.sex.equals("女")) {

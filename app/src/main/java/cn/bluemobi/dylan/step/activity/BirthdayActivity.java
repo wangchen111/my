@@ -26,7 +26,6 @@ import cn.bluemobi.dylan.step.step.utils.DbUtils;
  */
 
 public class BirthdayActivity extends Activity implements View.OnClickListener, HorizontalScaleScrollView.OnScrollListener {
-    private ImageView iv_left;
     private LinearLayout layout_titlebar;
     private ImageView male;
     private LinearLayout layout_female;
@@ -44,8 +43,6 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
     }
 
     private void initView() {
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_left.setOnClickListener(this);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
 //        male = (ImageView) findViewById(R.id.male);
         if (Constants.sex.equals("男")) {
@@ -80,9 +77,6 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
             case R.id.next:
                 save();
                 startActivity(new Intent(this, MainActivity.class));
-                break;
-            case R.id.iv_left:
-                finish();
                 break;
         }
     }
