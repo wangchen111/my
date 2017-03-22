@@ -186,8 +186,10 @@ public class HomeFragment extends Fragment implements Handler.Callback, View.OnC
             case Constant.MSG_FROM_SERVER:
                 String planWalk_QTY = (String) sp.getParam("planWalk_QTY", "7000");
                 cc.setCurrentCount(Integer.parseInt(planWalk_QTY), msg.getData().getInt("step"));
-                textView4.setText(mathUtil.getMails(msg.getData().getInt("step")) + "");
-                textView6.setText(mathUtil.getCalories(msg.getData().getInt("step")) + "");
+                textView4.setText(mathUtil.getMails(msg.getData().getInt("step")));
+                Constants.mail = mathUtil.getMails(msg.getData().getInt("step"));
+                textView6.setText(mathUtil.getCalories(msg.getData().getInt("step")));
+                Constants.calories = mathUtil.getCalories(msg.getData().getInt("step"));
                 break;
         }
         return false;

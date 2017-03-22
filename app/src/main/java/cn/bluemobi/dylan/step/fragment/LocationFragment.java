@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import cn.bluemobi.dylan.step.R;
 import cn.bluemobi.dylan.step.constant.Constants;
+import cn.bluemobi.dylan.step.step.config.Constant;
 import path.recordpath3d.AnimationActivity;
 
 /**
@@ -65,9 +66,10 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         textView7 = (TextView) view.findViewById(R.id.textView7);
 //        tv_set = (TextView) view.findViewById(R.id.tv_set);
         textView6 = (TextView) view.findViewById(R.id.textView6);
+        textView6.setText(Constants.calories);
         textView4 = (TextView) view.findViewById(R.id.textView4);
+        textView4.setText(Constants.mail);
         loginbutton = (Button) view.findViewById(R.id.loginbutton);
-
         loginbutton.setOnClickListener(this);
     }
 

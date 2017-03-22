@@ -11,4 +11,6 @@ public class Constants {
     public static int weight;
     public static int height;
     public static String birthday = "";
+    public static String mail = "0.0";
+    public static String calories = "0.0";
 }

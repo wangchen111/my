@@ -46,9 +46,11 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
         switch (v.getId()) {
             case R.id.last:
                 startActivity(new Intent(this, WeightActivity.class));
+                break;
             case R.id.next:
                 Constants.height = Integer.valueOf(tv_height.getText().toString());
                 startActivity(new Intent(this, BirthdayActivity.class));
+                break;
             case R.id.iv_left:
                 finish();
                 break;
