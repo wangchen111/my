@@ -1,6 +1,7 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +20,7 @@ import org.xutils.http.RequestParams;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bluemobi.dylan.step.R;
+import cn.bluemobi.dylan.step.step.utils.CountDownTimer;
 
 import static org.xutils.x.http;
 
@@ -27,13 +29,17 @@ import static org.xutils.x.http;
  *
  * @author wangchen
  * @version 1.0
- * 文件名称：SignupActivity
- * 类说明：注册模块
+ *          文件名称：SignupActivity
+ *          类说明：注册模块
  */
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
-    private static String SignupUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/reg";
-    private static String getCodeUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/getRandom";
+    private static String SignupUrl = "http://www.iwechat.top/tp5wx/public/index.php/api/register";
+    //    private static String SignupUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/reg";
+    private static String getCodeUrl = "http://www.iwechat.top/tp5wx/public/index.php/api/sendRegisterSms";
+//    private static String getCodeUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/getRandom";
+
+    private TimeCount time;
 
     @BindView(R.id.input_mobile)
     EditText _mobileText;
@@ -57,6 +63,8 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
+        time = new TimeCount(60000, 1000);
+
         final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
@@ -64,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("注册");
-        builder.setNegativeButton("确定", null);
+        builder.setNegativeButton("确定",null);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,25 +84,26 @@ public class SignupActivity extends AppCompatActivity {
                 progressDialog.setMessage("请稍候...");
                 progressDialog.show();
                 RequestParams params = new RequestParams(SignupUrl);
-                params.addBodyParameter("uname", _mobileText.getText().toString());
-                params.addParameter("pwd", _passwordText.getText().toString());
-                params.addParameter("sms", _identicodeText.getText().toString());
+                params.addBodyParameter("phone", _mobileText.getText().toString());
+                params.addParameter("cipher", _passwordText.getText().toString());
+                params.addParameter("smsCode", _identicodeText.getText().toString());
 //                params.addHeader("head","android"); //为当前请求添加一个头
                 http().post(params, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
-                        Log.e("response", result);
                         try {
+                            Log.e("response", result);
                             JSONObject object = null;
                             object = new JSONObject(result);
                             String status = object.getString("status");
+                            String msg = object.getString("msg");
                             if (status.equals("1")) {
                                 progressDialog.cancel();
-                                builder.setMessage("注册成功");
+                                builder.setMessage(msg);
                                 builder.show();
                             } else {
                                 progressDialog.cancel();
-                                builder.setMessage("注册失败");
+                                builder.setMessage(msg);
                                 builder.show();
                             }
                         } catch (Exception e) {
@@ -122,17 +131,25 @@ public class SignupActivity extends AppCompatActivity {
                 progressDialog.setMessage("请稍候...");
                 progressDialog.show();
                 RequestParams params = new RequestParams(getCodeUrl);
-                http().get(params, new Callback.CommonCallback<String>() {
+                params.addParameter("phone", _mobileText.getText().toString());
+                http().post(params, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
-                        Log.e("response", "onSuccess result:" + result);
                         try {
+                            Log.e("response", result);
                             JSONObject object = null;
                             object = new JSONObject(result);
-                            _identicodeText.setText(object.getString("num"));
-                            progressDialog.cancel();
-                            builder.setMessage("获取验证码成功");
-                            builder.show();
+                            String status = object.getString("status");
+                            String msg = object.getString("msg");
+                            if(status.equals("1")) {
+                                progressDialog.cancel();
+                                builder.setMessage(msg);
+                                builder.show();
+                            }else {
+                                progressDialog.cancel();
+                                builder.setMessage(msg);
+                                builder.show();
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -153,6 +170,8 @@ public class SignupActivity extends AppCompatActivity {
 //                        progressDialog.cancel();
                     }
                 });
+                time.start();
+
             }
         });
         _loginLink.setOnClickListener(new View.OnClickListener() {
@@ -201,5 +220,24 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    /* 定义一个倒计时的内部类 */
+    class TimeCount extends CountDownTimer {
+        public TimeCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+            _getCodeButton.setText("获取验证码");
+            _getCodeButton.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            _getCodeButton.setClickable(false);
+            _getCodeButton.setText(millisUntilFinished / 1000 + "秒后重新获取");
+        }
     }
 }

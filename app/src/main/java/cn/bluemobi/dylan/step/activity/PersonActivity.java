@@ -96,7 +96,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
             weight = bodyDatas.get(0).getWeight();
             birthday = bodyDatas.get(0).getBirthday();
         }
-        tv_data.setText("身高:" + height + " " + "体重" + weight + " " + "性别" + sex + " " + "生日" + birthday);
+        tv_data.setText("身高:" + height + "cm " + "体重" + weight + "kg " + "性别" + sex + " " + "生日" + birthday);
 
         List<StepData> stepDatas = DbUtils.getQueryAll(StepData.class);
         if (stepDatas.size() != 0) {

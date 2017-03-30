@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.litesuits.orm.db.annotation.Ignore;
+
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -19,6 +21,8 @@ import org.xutils.http.RequestParams;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bluemobi.dylan.step.R;
+import cn.bluemobi.dylan.step.constant.Constants;
+import cn.bluemobi.dylan.step.step.config.Constant;
 
 import static org.xutils.x.http;
 
@@ -34,7 +38,8 @@ import static org.xutils.x.http;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
-    private static final String LoginUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/login";
+    private static final String LoginUrl = "http://www.iwechat.top/tp5wx/public/index.php/api/login";
+//    private static final String LoginUrl = "http://www.iwechat.top/h5/mychat/index.php/Home/User/login";
 
     @BindView(R.id.input_mobile)
     EditText _mobileText;
@@ -87,28 +92,30 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("请稍候...");
         progressDialog.show();
         RequestParams params = new RequestParams(LoginUrl);
-        params.addBodyParameter("uname", _mobileText.getText().toString());
-        params.addParameter("pwd", _passwordText.getText().toString());
+        params.addBodyParameter("phone", _mobileText.getText().toString());
+        params.addParameter("cipher", _passwordText.getText().toString());
         http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 try {
+                    Log.e("response", result);
                     JSONObject object = null;
                     object = new JSONObject(result);
                     String status = object.getString("status");
-                    Log.e("msg", object.getString("msg"));
-                    Log.e("status", object.getString("status"));
+                    String msg = object.getString("msg");
+                    String info = object.getString("info");
+                    JSONObject Info = new JSONObject(info);
+                    Constants.sex = Info.getString("sex");
+                    Constants.height = Info.getInt("height");
+                    Constants.weight = Info.getInt("weight");
+                    Constants.birthday = Info.getString("birthday");
                     if (status.equals("1")) {
                         progressDialog.cancel();
-                        builder.setMessage("登录成功");
+                        builder.setMessage(msg);
                         builder.show();
-                    } else if (status.equals("-1")) {
+                    } else{
                         progressDialog.cancel();
-                        builder.setMessage("用户名不存在，请检查后再试");
-                        builder.show();
-                    } else if (status.equals("-2")) {
-                        progressDialog.cancel();
-                        builder.setMessage("密码错误，请检查后再试");
+                        builder.setMessage(msg);
                         builder.show();
                     }
                 } catch (Exception e) {
