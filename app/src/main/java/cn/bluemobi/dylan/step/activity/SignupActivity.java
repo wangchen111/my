@@ -72,7 +72,6 @@ public class SignupActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("注册");
-        builder.setNegativeButton("确定",null);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,10 +97,20 @@ public class SignupActivity extends AppCompatActivity {
                             String status = object.getString("status");
                             String msg = object.getString("msg");
                             if (status.equals("1")) {
+                                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                    }
+                                });
                                 progressDialog.cancel();
                                 builder.setMessage(msg);
                                 builder.show();
                             } else {
+                                builder.setNegativeButton("确定",null);
                                 progressDialog.cancel();
                                 builder.setMessage(msg);
                                 builder.show();

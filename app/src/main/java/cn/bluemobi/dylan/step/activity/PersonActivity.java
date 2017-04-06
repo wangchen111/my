@@ -12,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 import cn.bluemobi.dylan.step.R;
-import cn.bluemobi.dylan.step.step.pojo.BodyData;
 import cn.bluemobi.dylan.step.step.pojo.StepData;
 import cn.bluemobi.dylan.step.step.utils.DbUtils;
 import cn.bluemobi.dylan.step.step.utils.mathUtil;
@@ -41,10 +40,6 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private TextView begin;
     private TextView textView;
     /*========== 数据相关 ==========*/
-    int height;
-    int weight;
-    String birthday;
-    String sex;
     private TextView tv_cal;
 
 
@@ -81,23 +76,8 @@ public class PersonActivity extends Activity implements View.OnClickListener {
 
     private void initData() {
         if (DbUtils.getLiteOrm() == null) {
-            DbUtils.createDb(this, "body");
+            DbUtils.createDb(this, "jingzhi");
         }
-        List<BodyData> bodyDatas = DbUtils.getQueryAll(BodyData.class);
-        if (bodyDatas.size() == 0 || bodyDatas.isEmpty()) {
-            sex = "--";
-            height = 0;
-            weight = 0;
-            birthday = "--";
-        } else if (bodyDatas.size() == 1) {
-
-            sex = bodyDatas.get(0).getSex();
-            height = bodyDatas.get(0).getHeight();
-            weight = bodyDatas.get(0).getWeight();
-            birthday = bodyDatas.get(0).getBirthday();
-        }
-        tv_data.setText("身高:" + height + "cm " + "体重" + weight + "kg " + "性别" + sex + " " + "生日" + birthday);
-
         List<StepData> stepDatas = DbUtils.getQueryAll(StepData.class);
         if (stepDatas.size() != 0) {
             //获取第一次使用的日期

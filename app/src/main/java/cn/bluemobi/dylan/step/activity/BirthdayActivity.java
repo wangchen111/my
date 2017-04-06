@@ -1,11 +1,13 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,10 @@ import android.widget.TextView;
 
 import com.totcy.salelibrary.HorizontalScaleScrollView;
 
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+
 import java.util.List;
 
 import cn.bluemobi.dylan.step.R;
@@ -21,11 +27,16 @@ import cn.bluemobi.dylan.step.constant.Constants;
 import cn.bluemobi.dylan.step.step.pojo.BodyData;
 import cn.bluemobi.dylan.step.step.utils.DbUtils;
 
+import static org.xutils.x.http;
+
 /**
  * Created by wangchen on 2017/3/17.
  */
 
 public class BirthdayActivity extends Activity implements View.OnClickListener, HorizontalScaleScrollView.OnScrollListener {
+
+    private String updateUrl = "http://www.iwechat.top/tp5wx/public/index.php/api/updateUserInfo";
+
     private LinearLayout layout_titlebar;
     private ImageView male;
     private LinearLayout layout_female;
@@ -92,6 +103,10 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
     }
 
     private void save() {
+        /**
+         * 将个人数据存储本地数据库
+         */
+        Constants.birthday = tv_scale.getText().toString();
         if (DbUtils.getLiteOrm() == null) {
             DbUtils.createDb(this, "body");
         }
@@ -111,6 +126,54 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
             data.setBirthday(tv_scale.getText().toString());
             DbUtils.update(data);
         }
+        /**
+         * 与服务器同步个人数据
+         */
+        if (Constants.flag) {
+            final ProgressDialog progressDialog = new ProgressDialog(BirthdayActivity.this,
+                    R.style.AppTheme_Dark_Dialog);
+            progressDialog.setMessage("请稍候...");
+            progressDialog.show();
+            RequestParams params = new RequestParams(updateUrl);
+            params.addParameter("id", Constants.id);
+            params.addParameter("sex", Constants.sex);
+            params.addParameter("weight", Constants.weight);
+            params.addParameter("height", Constants.height);
+            params.addParameter("birthday", Constants.birthday);
+            http().post(params, new Callback.CommonCallback<String>() {
+
+                @Override
+                public void onSuccess(String result) {
+                    try {
+                        Log.e("response", result);
+                        JSONObject object = new JSONObject(result);
+                        String status = object.getString("status");
+                        String msg = object.getString("msg");
+                        if (status.equals("1")) {
+                            progressDialog.cancel();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            });
+
+        }
     }
 
     @Override
@@ -122,7 +185,7 @@ public class BirthdayActivity extends Activity implements View.OnClickListener, 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // 点击“确认”后的操作
-                        startActivity(new Intent(BirthdayActivity.this,MainActivity.class));
+                        startActivity(new Intent(BirthdayActivity.this, MainActivity.class));
                         BirthdayActivity.this.finish();
 
                     }

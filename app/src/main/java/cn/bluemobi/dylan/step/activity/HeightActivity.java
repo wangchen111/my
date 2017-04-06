@@ -58,7 +58,7 @@ public class HeightActivity extends Activity implements View.OnClickListener, Ve
         veScale.setOnScrollListener(new VerticalSrollScaleView.OnScrollListener() {
             @Override
             public void onScaleScroll(int scale) {
-                tv_height.setText(scale+"");
+                tv_height.setText(scale + "");
             }
         });
     }

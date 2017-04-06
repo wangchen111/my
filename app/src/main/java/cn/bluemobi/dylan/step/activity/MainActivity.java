@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -28,7 +29,9 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.OnClick;
 import cn.bluemobi.dylan.step.R;
+import cn.bluemobi.dylan.step.constant.Constants;
 import cn.bluemobi.dylan.step.fragment.HomeFragment;
 import cn.bluemobi.dylan.step.fragment.LocationFragment;
 import cn.bluemobi.dylan.step.step.utils.SharedPreferencesUtils;
@@ -268,11 +271,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            startActivity(new Intent(this, LoginActivity.class));
-        } else if (id == R.id.nac_person) {
-            startActivity(new Intent(this, SexActivity.class));
-        } else if (id == R.id.nav_setting) {
-
+            if(Constants.flag){
+                Toast.makeText(getApplicationContext(),"已登录,请勿重复登录",Toast.LENGTH_LONG).show();
+            }else if(!Constants.flag) {
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+        }  else if (id == R.id.nav_setting) {
+            startActivity(new Intent(this, SettingActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         } else if (id == R.id.nav_share) {
             startActivity(new Intent(this, ShareActivity.class), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         } else if (id == R.id.nav_send) {

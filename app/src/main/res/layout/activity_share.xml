@@ -57,7 +57,7 @@
             android:src="@drawable/github"
             android:layout_centerHorizontal="true"/>
         <Button
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/gitbutton"
             android:background="@mipmap/btn_submit_bg"
@@ -82,7 +82,7 @@
             android:src="@drawable/baidu"
             android:layout_centerHorizontal="true"/>
         <Button
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/baiduButton"
             android:background="@mipmap/btn_submit_bg"

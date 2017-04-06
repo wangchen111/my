@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kogitune.activity_transition.ActivityTransitionLauncher;
 
@@ -49,7 +50,7 @@ public class SexActivity extends Activity implements View.OnClickListener {
         female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Constants.sex = tv_female.getText().toString();
+                Constants.sex = "2";
                 final Intent intent = new Intent(SexActivity.this, WeightActivity.class);
                 intent.putExtra("sex", 0);
                 ActivityTransitionLauncher.with(SexActivity.this).from(v).launch(intent);
@@ -60,7 +61,7 @@ public class SexActivity extends Activity implements View.OnClickListener {
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Constants.sex = tv_male.getText().toString();
+                Constants.sex = "1";
                 final Intent intent = new Intent(SexActivity.this, WeightActivity.class);
                 intent.putExtra("sex", 1);
                 ActivityTransitionLauncher.with(SexActivity.this).from(v).launch(intent);
@@ -72,22 +73,33 @@ public class SexActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this).setTitle("确认退出设置个人资料吗？")
-                .setIcon(android.R.drawable.ic_dialog_info)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // 点击“确认”后的操作
-                        SexActivity.this.finish();
+        if(getIntent().getIntExtra("flag",-1)==1) {
+            new AlertDialog.Builder(this).setTitle("请先完善个人资料！")
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 点击“确认”后的操作
+                        }
+                    }).show();
+        }else {
+            new AlertDialog.Builder(this).setTitle("确认退出设置个人资料吗？")
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 点击“确认”后的操作
+                            SexActivity.this.finish();
 
-                    }
-                })
-                .setNegativeButton("返回", new DialogInterface.OnClickListener() {
+                        }
+                    })
+                    .setNegativeButton("返回", new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // 点击“返回”后的操作,这里不设置没有任何操作
-                    }
-                }).show();
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 点击“返回”后的操作,这里不设置没有任何操作
+                        }
+                    }).show();
+        }
     }
 }

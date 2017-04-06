@@ -1,6 +1,7 @@
 package cn.bluemobi.dylan.step.activity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -12,8 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.litesuits.orm.db.annotation.Ignore;
-
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -22,7 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bluemobi.dylan.step.R;
 import cn.bluemobi.dylan.step.constant.Constants;
-import cn.bluemobi.dylan.step.step.config.Constant;
 
 import static org.xutils.x.http;
 
@@ -80,14 +78,11 @@ public class LoginActivity extends AppCompatActivity {
     public void login() {
         Log.d(TAG, "Login");
 
-        _loginButton.setEnabled(false);
-
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("登录");
-        builder.setNegativeButton("确定", null);
 
         progressDialog.setMessage("请稍候...");
         progressDialog.show();
@@ -103,18 +98,37 @@ public class LoginActivity extends AppCompatActivity {
                     object = new JSONObject(result);
                     String status = object.getString("status");
                     String msg = object.getString("msg");
-                    String info = object.getString("info");
-                    JSONObject Info = new JSONObject(info);
-                    Constants.sex = Info.getString("sex");
-                    Constants.height = Info.getInt("height");
-                    Constants.weight = Info.getInt("weight");
-                    Constants.birthday = Info.getString("birthday");
                     if (status.equals("1")) {
+                        String info = object.getString("info");
+                        final JSONObject Info = new JSONObject(info);
+                        Constants.flag = true;
+                        final String sex = Info.getString("sex");
+                        Constants.sex = Info.getString("sex");
+                        Constants.id = Info.getInt("id");
+                        Constants.height = Info.getInt("height");
+                        Constants.weight = Info.getInt("weight");
+                        Constants.birthday = Info.getString("birthday");
                         progressDialog.cancel();
+                        builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (sex.equals("3")) {
+                                    Intent intent = new Intent(getApplicationContext(), SexActivity.class);
+                                    intent.putExtra("flag", 1);
+                                    startActivity(intent);
+                                    finish();
+                                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                } else {
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
                         builder.setMessage(msg);
                         builder.show();
-                    } else{
+                    } else {
                         progressDialog.cancel();
+                        builder.setNegativeButton("确定", null);
                         builder.setMessage(msg);
                         builder.show();
                     }
